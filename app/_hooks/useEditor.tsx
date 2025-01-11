@@ -17,13 +17,13 @@ const TOOLBARS: Commands[] = [
   "header",
   "olist",
   "ulist",
-  "todo",
   "quote",
   "image",
   "code",
 ];
 
 interface EditorProps {
+  className?: string;
   visible?: boolean;
   enableScroll?: boolean;
 }
@@ -34,16 +34,15 @@ export default function useEditor(initContent: string = "Hello Markdown!") {
   const handleChange = (value: string) => setContent(value);
 
   const Editor = useCallback(
-    ({ visible = true, enableScroll = true }: EditorProps) => (
+    ({ className, visible = true, enableScroll = true }: EditorProps) => (
       <MarkdownEditor
+        className={className}
         value={initContent}
         visible={visible}
-        height="500px"
         enableScroll={enableScroll}
         onChange={handleChange}
         toolbars={TOOLBARS}
-        toolbarsMode={[]}
-        enablePreview={false}
+        toolbarsMode={["preview"]}
       />
     ),
     [initContent]

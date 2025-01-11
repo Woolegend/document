@@ -1,16 +1,13 @@
 "use client";
 
-import useEditor from "./_hooks/useEditor";
+import Link from "next/link";
 
 export default function Home() {
-  const { content, Editor } = useEditor();
-
-  console.log(content);
-
   return (
     <div>
       <h1>Home Page</h1>
-      <Editor />
+      <Link href="/write">글쓰기</Link>
+      <Link href="/post">게시글</Link>
     </div>
   );
 }

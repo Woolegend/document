@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import "@uiw/react-markdown-editor/markdown-editor.css";
+import "@/app/_styles/markdown-editor.css";
 import "@uiw/react-markdown-preview/markdown.css";
 import { Commands } from "@uiw/react-markdown-editor/cjs/components/ToolBar";
 import { useCallback, useState } from "react";
@@ -42,6 +42,8 @@ export default function useEditor(initContent: string = "Hello Markdown!") {
         enableScroll={enableScroll}
         onChange={handleChange}
         toolbars={TOOLBARS}
+        toolbarsMode={[]}
+        enablePreview={false}
       />
     ),
     [initContent]

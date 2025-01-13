@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 import "@/app/_styles/markdown-editor.css";
-import "@uiw/react-markdown-preview/markdown.css";
+import "@/app/_styles/markdown-preview.css";
 import { Commands } from "@uiw/react-markdown-editor/cjs/components/ToolBar";
 import { useCallback, useState } from "react";
 

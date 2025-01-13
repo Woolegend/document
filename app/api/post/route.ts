@@ -9,35 +9,30 @@ export async function GET() {
     });
     return NextResponse.json(result);
   } catch (error) {
-    console.log(error);
-    return NextResponse.json({ error: "Read Post Error #1" }, { status: 500 });
+    return NextResponse.json({ error }, { status: 500 });
   }
 }
 
 export async function POST(request: Request) {
-  const { title, content } = await request.json();
+  const { title, content, tags } = await request.json();
 
-  if (title && content) {
-    try {
-      const db = (await connectDB).db("document");
-      const result = await db.collection("post").insertOne({
-        title,
-        content,
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      });
-      return NextResponse.json(result);
-    } catch (error) {
-      console.log(error);
-      return NextResponse.json(
-        { error: "Create Post Error #1" },
-        { status: 500 }
-      );
-    }
-  } else {
-    return NextResponse.json(
-      { error: "Create Post Error #2" },
-      { status: 500 }
-    );
+  if (!title)
+    return NextResponse.json({ error: "제목을 입력하세요" }, { status: 422 });
+
+  if (!content)
+    return NextResponse.json({ error: "내용을 입력하세요" }, { status: 422 });
+
+  try {
+    const db = (await connectDB).db("document");
+    const result = await db.collection("post").insertOne({
+      title: title.trim(),
+      content,
+      tags,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    });
+    return NextResponse.json(result);
+  } catch (error) {
+    return NextResponse.json({ error }, { status: 500 });
   }
 }

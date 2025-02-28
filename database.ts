@@ -1,6 +1,6 @@
 import { MongoClient, MongoClientOptions } from "mongodb";
 
-const url = process.env.NEXT_PUBLIC_MONGODB_URL || "";
+const url = process.env.MONGODB_URL || "";
 const options: MongoClientOptions = {};
 
 let connectDB: Promise<MongoClient>;

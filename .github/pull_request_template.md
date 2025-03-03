@@ -8,17 +8,13 @@ assignees: ""
 
 # Pull Request Template
 
-# 🔗 Issue
-
-Closes #123
-
 ## 💡 Changes
 
 Provide a brief summary of the changes made in this PR.
 
 ## 📌 Related Issues
 
-- Tag related issue numbers (e.g., Closes #12)
+- Closes #123 (e.g., Closes #12)
 
 ## 🔍 Detailed Changes
 

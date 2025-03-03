@@ -1,7 +1,7 @@
 "use client";
 
-import useEditor from "@/app/_hooks/useEditor";
-import { createPost } from "@/app/_lib/post.api";
+import useEditor from "@/hooks/useEditor";
+import { createPost } from "@/lib/post.api";
 import { ChangeEvent, KeyboardEvent, useEffect, useState } from "react";
 import TitleField from "./TitleField";
 import UtilsWrap from "./UtilsWrap";

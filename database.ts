@@ -16,7 +16,7 @@ if (typeof window === "undefined") {
   }
 } else {
   connectDB = Promise.reject(
-    new Error("MongoDB connection is not available on the client side")
+    new Error("MongoDB connection is not available on the client side"),
   );
 }
 

@@ -17,7 +17,7 @@ const nextConfig: NextConfig = {
   },
   webpack: (
     config: Configuration,
-    { dev, isServer }: WebpackConfigContext
+    { dev, isServer }: WebpackConfigContext,
   ): Configuration => {
     if (!dev && !isServer) {
       config.cache = true;
